@@ -30,7 +30,7 @@ fun main()
     fun part2(input: List<String>): Int
     {
         return parseElfCalories(input)
-            .sortedByDescending { it }
+            .sortedDescending()
             .take(3)
             .sum()
     }

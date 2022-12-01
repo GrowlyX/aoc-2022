@@ -15,7 +15,7 @@ fun main()
                 return@forEach
             }
 
-            greatest[greatest.size - 1] =
+            greatest[greatest.lastIndex] =
                 greatest.last() + it.toInt()
         }
 

@@ -6,7 +6,20 @@ fun main()
 {
     fun part1(input: List<String>): Int
     {
-        return -1
+        val greatest = mutableListOf(0)
+
+        input.forEach {
+            if (it.isEmpty())
+            {
+                greatest += 0
+                return@forEach
+            }
+
+            greatest[greatest.size - 1] =
+                greatest.last() + it.toInt()
+        }
+
+        return greatest.max()
     }
 
     fun part2(input: List<String>): Int

@@ -14,6 +14,6 @@ fun main()
         return -1
     }
 
-    part1(readInput(1, 1))
-    part2(readInput(1, 2))
+    println(part1(readInput(1, 1)))
+    println(part2(readInput(1, 2)))
 }

@@ -2,6 +2,6 @@
 Contains AOC-2022 solutions for multiple languages.
 
 ## Repository Structure
-- `kotlin`: Contains code for Kotlin solutions.
+- `src`: Contains code for Kotlin solutions.
 - `inputs`: Directory containing txt files with program inputs.
-    - Formatted through the following format: `<day>-<part>.txt`.
+    - Formatted through the following format: `day<day>-part<part>.txt`.

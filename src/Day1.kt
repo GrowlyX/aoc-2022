@@ -6,20 +6,20 @@ fun main()
 {
     fun parseElfCalories(input: List<String>): List<Int>
     {
-        val greatest = mutableListOf(0)
+        val calories = mutableListOf(0)
 
         input.forEach {
             if (it.isEmpty())
             {
-                greatest += 0
+                calories += 0
                 return@forEach
             }
 
-            greatest[greatest.lastIndex] =
-                greatest.last() + it.toInt()
+            calories[calories.lastIndex] =
+                calories.last() + it.toInt()
         }
 
-        return greatest
+        return calories
     }
 
     fun part1(input: List<String>): Int

@@ -4,25 +4,7 @@
  */
 fun main()
 {
-    fun part1(input: List<String>): Int
-    {
-        val greatest = mutableListOf(0)
-
-        input.forEach {
-            if (it.isEmpty())
-            {
-                greatest += 0
-                return@forEach
-            }
-
-            greatest[greatest.size - 1] =
-                greatest.last() + it.toInt()
-        }
-
-        return greatest.max()
-    }
-
-    fun part2(input: List<String>): Int
+    fun parseElfCalories(input: List<String>): List<Int>
     {
         val greatest = mutableListOf(0)
 
@@ -38,6 +20,16 @@ fun main()
         }
 
         return greatest
+    }
+
+    fun part1(input: List<String>): Int
+    {
+        return parseElfCalories(input).max()
+    }
+
+    fun part2(input: List<String>): Int
+    {
+        return parseElfCalories(input)
             .sortedByDescending { it }
             .take(3)
             .sum()

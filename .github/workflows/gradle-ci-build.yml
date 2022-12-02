@@ -1,0 +1,40 @@
+name: Gradle CI
+on: [ push ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: "11"
+          distribution: "adopt"
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+      - uses: burrunan/gradle-cache-action@v1
+        name: Build Team Code
+        with:
+          job-id: jdk11
+          arguments: build
+          gradle-version: 7.6
+          properties: |
+            kotlin.js.compiler=ir
+            kotlin.parallel.tasks.in.project=true
+            org.gradle.caching=true
+      - name: Move Classes
+        run: |
+          mkdir ${{ github.workspace }}/final-output
+          cp -R ${{ github.workspace }}/build/libs/* ${{ github.workspace }}/final-output
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Built Code
+          path: ${{ github.workspace }}/final-output
+          retention-days: 1
+      - name: Cleanup Gradle Cache
+        run: |
+          rm -f ~/.gradle/caches/modules-2/modules-2.lock
+          rm -f ~/.gradle/caches/modules-2/gc.properties

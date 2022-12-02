@@ -55,14 +55,14 @@ fun main()
             if (first in second.destroys)
             {
                 score += 0
-                println("You won!")
+                println("You won! $first won to $second")
                 return@forEach
             }
 
             if (second in first.destroys)
             {
                 score += 6
-                println("You lost!")
+                println("You lost! $first lost to $second")
                 return@forEach
             }
 

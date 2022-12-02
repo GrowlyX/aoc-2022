@@ -4,20 +4,24 @@
  */
 enum class Play(
     val score: Int,
-    val destroys: List<Play>
+    private val destroysEnumConstants: List<String>
 )
-{
+{  
+    Scissors(3, listOf(
+        "Paper"
+    )),
+
     Rock(1, listOf(
-        Play.Scissors
+        "Scissors"
     )),
         
     Paper(2, listOf(
-        Play.Rock
-    )), 
-        
-    Scissors(3, listOf(
-        Play.Paper
-    ))
+        "Rock"
+    ));
+
+    val destroys by lazy {
+        this.destroysEnumConstants.map(Play::valueOf)
+    }
 }
 
 fun main()

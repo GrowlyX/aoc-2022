@@ -48,20 +48,25 @@ fun main()
             if (first == second)
             {
                 score += 3
+                println("It's a tie!")
                 return@forEach
             }
 
             if (first in second.destroys)
             {
                 score += 0
+                println("You won!")
                 return@forEach
             }
 
             if (second in first.destroys)
             {
                 score += 6
+                println("You lost!")
                 return@forEach
             }
+
+            println("NOTHING HAPPENED?? ${it}")
         }
 
         return score

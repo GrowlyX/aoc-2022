@@ -51,15 +51,16 @@ fun main()
                 return@forEach
             }
 
+            if (first in second.destroys)
+            {
+                score += 0
+                return@forEach
+            }
+
             if (second in first.destroys)
             {
                 score += 6
                 return@forEach
-            }
-
-            if (first in second.destroys)
-            {
-                score += 0
             }
         }
 

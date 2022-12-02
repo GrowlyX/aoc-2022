@@ -2,26 +2,26 @@
  * @author GrowlyX
  * @since 12/2/2022
  */
+enum class Play(
+    val score: Int,
+    val destroys: List<Play>
+)
+{
+    Rock(1, listOf(
+        Play.Scissors
+    )),
+        
+    Paper(2, listOf(
+        Play.Rock
+    )), 
+        
+    Scissors(3, listOf(
+        Play.Paper
+    ))
+}
+
 fun main()
 {
-    enum class Play(
-        val score: Int,
-        val destroys: List<Play>
-    )
-    {
-        Rock(1, listOf(
-            Play.Scissors
-        )),
-        
-        Paper(2, listOf(
-            Play.Rock
-        )), 
-        
-        Scissors(3, listOf(
-            Play.Paper
-        ))
-    }
-
     fun part1(input: List<String>): Int
     {
         val mappings = mutableMapOf(

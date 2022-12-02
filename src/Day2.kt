@@ -27,28 +27,28 @@ fun main()
         var score = 0
 
         input.forEach {
-            val first = mappings[it[0]]!!
-            val second = mappings[it[2]]!!
+            val enemy = mappings[it[0]]!!
+            val friendly = mappings[it[2]]!!
 
-            score += first.score
+            score += friendly.score
 
-            if (first == second)
+            if (enemy == friendly)
             {
                 score += 3
                 println("It's a tie!")
                 return@forEach
             }
 
-            if (second.destroys() == first)
+            if (friendly.destroys() == enemy)
             {
-                println("You lost! $first lost to $second")
+                score += 6
+                println("You Won! $enemy lost to $friendly")
                 return@forEach
             }
 
-            if (first.destroys() == second)
+            if (enemy.destroys() == friendly)
             {
-                score += 6
-                println("You won! $first won to $second")
+                println("You Lost! $enemy won to $friendly")
                 return@forEach
             }
 

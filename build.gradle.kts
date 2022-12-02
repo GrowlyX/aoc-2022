@@ -1,17 +1,27 @@
 plugins {
     kotlin("jvm") version "1.7.22"
-    id("application")
+	application
+	id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 repositories {
     mavenCentral()
 }
 
+application {
+	mainClass.set("Day2Kt")
+}
+
 tasks {
-    application {
-        mainClassName("Day2Kt")
-    }
-    
+	withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
+		archiveFileName.set("aoc-2022.jar")
+		mergeServiceFiles()
+	}
+
+	build {
+		dependsOn(shadowJar)
+	}
+
     sourceSets {
         main {
             java.srcDirs("src")

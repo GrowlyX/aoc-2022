@@ -16,7 +16,7 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
       - uses: burrunan/gradle-cache-action@v1
-        name: Build Team Code
+        name: Build Project
         with:
           job-id: jdk11
           arguments: build

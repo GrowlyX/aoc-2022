@@ -31,7 +31,7 @@ jobs:
           cp -R ${{ github.workspace }}/build/libs/* ${{ github.workspace }}/final-output
       - uses: actions/upload-artifact@v3
         with:
-          name: Built Code
+          name: package
           path: ${{ github.workspace }}/final-output
           retention-days: 1
       - name: Cleanup Gradle Cache

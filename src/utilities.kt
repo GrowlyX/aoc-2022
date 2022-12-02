@@ -7,8 +7,7 @@ import java.security.MessageDigest
  */
 fun readInput(day: Int, part: Int) =
     File(
-        "G:\\Organizations\\AOC\\aoc-2022\\inputs",
-        "day$day-part$part.txt"
+        "inputs", "day$day-part$part.txt"
     ).readLines()
 
 /**

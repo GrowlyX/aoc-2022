@@ -7,8 +7,14 @@ import java.security.MessageDigest
  */
 fun readInput(day: Int, part: Int) =
     File(
-        "inputs", "day$day-part$part.txt"
-    ).readLines()
+        "G:\\Organizations\\AOC\\inputs",
+        "day$day-part$part.txt"
+    ).let {
+        if (it.exists())
+            return@let it.readLines()
+
+        return@let listOf()
+    }
 
 /**
  * Converts string to md5 hash.

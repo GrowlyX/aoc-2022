@@ -1,5 +1,5 @@
 # Advent of Code 2022
-Contains AOC-2022 solutions for multiple languages.
+Contains Kotlin solutions for Advent of Code 2022.
 
 ## Repository Structure
 - `src`: Contains code for Kotlin solutions.

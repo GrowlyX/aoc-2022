@@ -18,12 +18,8 @@ enum class Play(val score: Int)
 }
 
 val mappings = mutableMapOf(
-    'A' to Play.Rock,
-    'B' to Play.Paper,
-    'C' to Play.Scissors,
-    'X' to Play.Rock,
-    'Y' to Play.Paper,
-    'Z' to Play.Scissors
+    'A' to Play.Rock, 'B' to Play.Paper, 'C' to Play.Scissors,
+    'X' to Play.Rock, 'Y' to Play.Paper, 'Z' to Play.Scissors
 )
 
 fun main()

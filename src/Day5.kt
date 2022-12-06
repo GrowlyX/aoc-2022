@@ -4,7 +4,9 @@
  */
 fun main()
 {
-    fun part1(input: List<String>): List<Char>
+    fun parseAndReturnLastChars(
+        input: List<String>, retainOrder: Boolean = false
+    ): List<Char>
     {
         val directions = input
             .filter {
@@ -70,7 +72,9 @@ fun main()
             val takenFromContainer = crateContainers[removeFrom]
 
             crateContainers[relocateTo] +=
-                takenFromContainer.takeLast(toRemove).reversed()
+                takenFromContainer.takeLast(toRemove).let {
+                    if (retainOrder) it else it.reversed()
+                }
 
             (1..toRemove).forEach { _ ->
                 takenFromContainer.removeLastOrNull()
@@ -80,11 +84,12 @@ fun main()
         return crateContainers.map { it.last() }
     }
 
-    fun part2(input: List<String>): Int
-    {
-        return -1
-    }
+    fun part1(input: List<String>) =
+        parseAndReturnLastChars(input)
 
-    println(part1(readInput(5, 1)))
-    println(part2(readInput(5, 2)))
+    fun part2(input: List<String>) =
+        parseAndReturnLastChars(input, retainOrder = true)
+
+    println(part1(readInput(5, 1)).joinToString(""))
+    println(part2(readInput(5, 2)).joinToString(""))
 }

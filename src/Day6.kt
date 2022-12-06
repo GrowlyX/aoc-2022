@@ -18,7 +18,7 @@ fun main()
 
             if (mappedToChars.size == 4)
             {
-                selected = index
+                selected = index + 1
                 break
             }
         }

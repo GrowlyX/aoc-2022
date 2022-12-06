@@ -10,7 +10,7 @@ fun main()
     {
         val containerListIndex = input
             .indexOfFirst {
-                it.startsWith(" 1 ")
+                it[1] == '1'
             }
 
         if (containerListIndex == -1)

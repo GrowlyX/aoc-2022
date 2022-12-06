@@ -13,7 +13,7 @@ fun main()
         {
             val indices = ((index - 3)..index).toList()
             val mappedToChars = indices
-                .map { text.charAt(it) }
+                .map { text[it] }
                 .toSet()
 
             if (mappedToChars.size == 4)

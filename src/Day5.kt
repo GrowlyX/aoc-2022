@@ -1,3 +1,5 @@
+import kotlin.system.measureTimeMillis
+
 /**
  * @author GrowlyX
  * @since 12/2/2022
@@ -8,11 +10,6 @@ fun main()
         input: List<String>, retainOrder: Boolean = false
     ): List<Char>
     {
-        val directions = input
-            .filter {
-                it.startsWith("move")
-            }
-
         val containerListIndex = input
             .indexOfFirst {
                 it.startsWith(" 1 ")
@@ -24,6 +21,12 @@ fun main()
                 "No container list line found ( 1 2 3 ...)"
             )
         }
+
+        val directions = input
+            .subList(
+                fromIndex = containerListIndex + 2,
+                toIndex = input.lastIndex + 1
+            )
 
         val containerListString = input[containerListIndex]
         val containerList = containerListString[containerListString.length - 2].digitToInt()

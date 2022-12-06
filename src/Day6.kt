@@ -11,7 +11,7 @@ fun main()
         val text = input.firstOrNull()
             ?: return -2
 
-        for (index in range..text.length - 1)
+        for (index in range until text.length)
         {
             val indices = (index - range)..index
             val characters = indices
@@ -26,7 +26,7 @@ fun main()
         return -1
     }
 
-    fun part1(input: List<String>) = 
+    fun part1(input: List<String>) =
         parseIntoUniqueCharRanged(input, 3)
     fun part2(input: List<String>) =
         parseIntoUniqueCharRanged(input, 13)

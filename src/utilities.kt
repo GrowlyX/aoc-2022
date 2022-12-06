@@ -7,7 +7,7 @@ import java.security.MessageDigest
  */
 fun readInput(day: Int, part: Int) =
     File(
-        "G:\\Organizations\\AOC\\inputs",
+        /*G:\\Organizations\\AOC\\*/"inputs",
         "day$day-part$part.txt"
     ).let {
         if (it.exists())

@@ -25,15 +25,12 @@ fun main()
             )
         }
 
-        val containerList = input[containerListIndex]
-            .removePrefix(" ")
-            .removeSuffix(" ")
-            .split("   ")
-            .map(String::toInt)
+        val containerListString = input[containerListIndex]
+        val containerList = containerListString[containerListString.length - 2].digitToInt()
 
         val crateContainers = mutableListOf<MutableList<Char>>()
 
-        for (container in containerList)
+        for (container in 1..containerList)
         {
             val index = 1 + (4 * (container - 1))
             val characters = mutableListOf<Char>()
@@ -56,18 +53,11 @@ fun main()
 
         for (direction in directions)
         {
-            // ghetto parse solution but its fine 4 now
-            // TODO: regex? extract keys
-            val parsed = direction
-                .replace("move ", "")
-                .replace(" from ", ",")
-                .replace(" to ", ",")
-                .split(",")
-                .map(String::toInt)
+            val parsed = direction.split(" ")
 
-            val toRemove = parsed[0]
-            val removeFrom = parsed[1] - 1
-            val relocateTo = parsed[2] - 1
+            val toRemove = parsed[1].toInt()
+            val removeFrom = parsed[3].toInt() - 1
+            val relocateTo = parsed[5].toInt() - 1
 
             val takenFromContainer = crateContainers[removeFrom]
 

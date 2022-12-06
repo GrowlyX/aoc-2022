@@ -4,19 +4,21 @@
  */
 fun main()
 {
-    fun part1(input: List<String>): Int
+    fun parseWithMaxCharIndex(
+        input: List<String>, mci: Int
+    ): Int
     {
         val text = input.first()
-        var selected = -2
+        var selected = -1
 
-        for (index in 3..text.length - 1)
+        for (index in mci..text.length - 1)
         {
-            val indices = ((index - 3)..index).toList()
+            val indices = ((index - mci)..index).toList()
             val mappedToChars = indices
                 .map { text[it] }
                 .toSet()
 
-            if (mappedToChars.size == 4)
+            if (mappedToChars.size == mci + 1)
             {
                 selected = index + 1
                 break
@@ -26,9 +28,14 @@ fun main()
         return selected
     }
 
+    fun part1(input: List<String>): Int
+    {
+        return parseWithMaxCharIndex(input, 3)
+    }
+
     fun part2(input: List<String>): Int
     {
-        return -1
+        return parseWithMaxCharIndex(input, 14)
     }
 
     println(part1(readInput(6, 1)))

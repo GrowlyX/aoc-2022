@@ -28,15 +28,8 @@ fun main()
         return selected
     }
 
-    fun part1(input: List<String>): Int
-    {
-        return parseWithMaxCharIndex(input, 3)
-    }
-
-    fun part2(input: List<String>): Int
-    {
-        return parseWithMaxCharIndex(input, 14)
-    }
+    fun part1(input: List<String>) = parseWithMaxCharIndex(input, 3)
+    fun part2(input: List<String>) = parseWithMaxCharIndex(input, 13)
 
     println(part1(readInput(6, 1)))
     println(part2(readInput(6, 2)))

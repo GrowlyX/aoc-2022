@@ -86,10 +86,12 @@ fun main()
 
     fun part1(input: List<String>) =
         parseAndReturnLastChars(input)
+            .joinToString("")
 
     fun part2(input: List<String>) =
         parseAndReturnLastChars(input, retainOrder = true)
+            .joinToString("")
 
-    println(part1(readInput(5, 1)).joinToString(""))
-    println(part2(readInput(5, 2)).joinToString(""))
+    println(part1(readInput(5, 1)))
+    println(part2(readInput(5, 2)))
 }

@@ -12,7 +12,7 @@ fun main()
         for (index in 3..text.length - 1)
         {
             val indices = ((index - 3)..index).toList()
-            val mappedToChars = indicies
+            val mappedToChars = indices
                 .map { text.charAt(it) }
                 .toSet()
 
